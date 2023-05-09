@@ -7,7 +7,11 @@ public class PlayerController : MonoBehaviour
     
     public float speed = 5.0f;
     public float horizontalInput;
-    public string inputID; 
+    public string inputID;
+    public SpriteRenderer SR;
+    public Sprite turnRightSprite; 
+    public Sprite turnLeftSprite; 
+    public Sprite baseSprite; 
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +25,22 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal" + inputID);
         
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            SR.sprite = turnRightSprite;
+        }
+        if(Input.GetKeyUp(KeyCode.D))
+        {
+            SR.sprite = baseSprite;
+        }
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            SR.sprite = turnLeftSprite;
+        }
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            SR.sprite = baseSprite;
+        }
     }
 }
