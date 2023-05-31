@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - PostPro
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 'Background '
+    uniqueID: 2909566753
+    locked: 0
+  - name: Tank
+    uniqueID: 3139310879
+    locked: 0
+  - name: Sprites
+    uniqueID: 258955119
+    locked: 0
+  - name: Player
+    uniqueID: 2433468773
+    locked: 0
+  - name: Outside
+    uniqueID: 3241316211
+    locked: 0
+  - name: Foreground
+    uniqueID: 4153969079
     locked: 0
