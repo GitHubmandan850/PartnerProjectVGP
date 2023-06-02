@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TankController : MonoBehaviour
 {
     public float Ammo;
+    public FireCannon fire;
 
     void Start()
     {
@@ -14,7 +15,10 @@ public class TankController : MonoBehaviour
 
     void Update()
     {
-        Ammo = Mathf.Clamp(Ammo, -1, 1);
+        
+
+
+        Ammo = Mathf.Clamp(Ammo, 0, 1);
     }
 
     

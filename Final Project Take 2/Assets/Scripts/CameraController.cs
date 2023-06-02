@@ -6,13 +6,14 @@ public class CameraController : MonoBehaviour
 {
     public TankController tank;
     public FireCannon fire;
-    private Transform transform;
+    Transform transform;
     private float shakeDuration = 0f;
     public float shakeMagnitude = 0.7f;
     public float time = 2.0f;
     public GameObject hatch;
     private float dampingSpeed = 1.0f;
     Vector3 initialPosition;
+    public PlayerController player;
 
     void Awake()
     {
@@ -56,7 +57,7 @@ public class CameraController : MonoBehaviour
                 TriggerShake();
                 fire.Shellin = false;
                 tank.Ammo = 0;
-                hatch.SetActive(false);
+                fire.Hatch.SetActive(false);
             }
         }
     }

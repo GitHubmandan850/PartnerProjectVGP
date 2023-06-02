@@ -6,6 +6,8 @@ public class AimCannon : MonoBehaviour
 {
     public Animator Shot;
     public FireCannon cannonscript;
+    public GameObject Hatch;
+    public TankController tonk;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,8 @@ public class AimCannon : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && cannonscript.Shellin == true && cannonscript.inCam == true)
         {
             cannonscript.Shellin = false;
+            Hatch.SetActive(false);
+            tonk.Ammo = 0;
         }
     }
 }

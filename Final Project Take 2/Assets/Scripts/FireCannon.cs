@@ -15,16 +15,15 @@ public class FireCannon : MonoBehaviour
     [SerializeField]
     float zoomSpeed = 5.0f;
 
-    public PlayerController Player;
     public TankController tonkScript;
     public ShellGrab shellGrab;
+    public PlayerController Player;
 
     private float originalSize = 0f;
 
     public bool Shellin = false;
     public bool inCam = false;
     bool CannonActive = false;
-
     public Camera thisCamera;
 
     void Start()
@@ -36,25 +35,28 @@ public class FireCannon : MonoBehaviour
     {
         if(CannonActive)
         {
-            if(Input.GetKeyDown(KeyCode.E) && Shellin == false && shellGrab.hasShell == true)
-            {
-                shellGrab.Round.SetActive(false);
-                Shellin = true;
-                Hatch.SetActive(true);
-            }
-            if(Input.GetKeyDown(KeyCode.E) && Shellin == true)
-            {
-                zoomFactor = 2;
-                Player.speed = 0;
-                OutsideTank.SetActive(true);
-                inCam = true;
-            }
             if(Input.GetKeyUp(KeyCode.E) && Shellin == true)
             {
                 zoomFactor = 1;
                 Player.speed = 5;
                 OutsideTank.SetActive(false);
                 inCam = false;
+            }
+            if(Input.GetKeyDown(KeyCode.E) && Shellin == false && shellGrab.hasShell == true)
+            {
+                shellGrab.Round.SetActive(false);
+                Shellin = true;
+                Hatch.SetActive(true);
+                shellGrab.Round.SetActive(false);
+                
+            }
+            else if(Input.GetKeyDown(KeyCode.E) && Shellin == true)
+            {
+                zoomFactor = 2;
+                Player.speed = 0;
+                OutsideTank.SetActive(true);
+                inCam = true;
+                AddAmmo();
             }
         }
 
@@ -84,5 +86,10 @@ public class FireCannon : MonoBehaviour
     void SetZoom(float zoomFactor)
     {
         this.zoomFactor = zoomFactor;
+    }
+     
+    void AddAmmo()
+    {
+        tonkScript.Ammo = 1;
     }
 }

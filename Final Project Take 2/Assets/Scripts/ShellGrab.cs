@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ShellGrab : MonoBehaviour
 {
     public GameObject Round;
+    public FireCannon firecan;
     bool CanLoad = false;
     public bool hasShell = false;
 
