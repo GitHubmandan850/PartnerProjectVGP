@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class FireCannon : MonoBehaviour
 {
+    public Animator Soilder;
+    public FireCannon fire;
+    public Animator Cam;
+    public Animator Tank;
+    public GameObject back;
     public GameObject Round;
     public GameObject OutsideTank;
     public GameObject Hatch;
@@ -48,9 +53,10 @@ public class FireCannon : MonoBehaviour
                 Shellin = true;
                 Hatch.SetActive(true);
                 shellGrab.Round.SetActive(false);
+                shellGrab.hasShell = false;
                 
             }
-            else if(Input.GetKeyDown(KeyCode.E) && Shellin == true)
+            else if(Input.GetKeyDown(KeyCode.E) && Shellin == true && shellGrab.hasShell == false)
             {
                 zoomFactor = 2;
                 Player.speed = 0;
@@ -91,5 +97,13 @@ public class FireCannon : MonoBehaviour
     void AddAmmo()
     {
         tonkScript.Ammo = 1;
+    }
+    public void StartGame()
+    {
+        back.SetActive(false);
+        zoomFactor = 2.5f;
+        Soilder.enabled = true;
+        Tank.enabled = true;
+        Cam.enabled = true;
     }
 }

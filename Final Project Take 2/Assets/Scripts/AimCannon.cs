@@ -7,6 +7,7 @@ public class AimCannon : MonoBehaviour
     public Animator Shot;
     public FireCannon cannonscript;
     public GameObject Hatch;
+    public ShellGrab Shellgrab;
     public TankController tonk;
 
     // Start is called before the first frame update
@@ -27,11 +28,6 @@ public class AimCannon : MonoBehaviour
         transform.eulerAngles = euler;
 
 
-        if(Input.GetKeyDown(KeyCode.Space) && cannonscript.Shellin == true && cannonscript.inCam == true)
-        {
-            cannonscript.Shellin = false;
-            Hatch.SetActive(false);
-            tonk.Ammo = 0;
-        }
+        
     }
 }
